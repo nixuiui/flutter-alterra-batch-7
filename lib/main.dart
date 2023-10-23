@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,19 +105,6 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircularPercentIndicator(
-              radius: 100.0,
-              lineWidth: 10.0,
-              percent: 0.8,
-              header: const Text("Icon header"),
-              center: const Icon(
-                Icons.person_pin,
-                size: 50.0,
-                color: Colors.brown,
-              ),
-              backgroundColor: Colors.grey[300]!,
-              progressColor: Colors.green,
-            ),
             const Text(
               'You have pushed the button this many times:',
             ),
