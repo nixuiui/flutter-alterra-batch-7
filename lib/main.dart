@@ -8,6 +8,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+  // Aplikasi ini dibuat untuk belajar git
+  // Belajar stashing
+  // Simpan perubahan setelah git stash apply
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
