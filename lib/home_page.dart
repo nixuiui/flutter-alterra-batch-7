@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_alterra_batch_7/chat_room.dart';
 import 'package:flutter_alterra_batch_7/chat_room_item_widget.dart';
+import 'package:flutter_alterra_batch_7/layout_page.dart';
 import 'package:flutter_alterra_batch_7/menu_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -70,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: const MenuDrawer(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const LayoutPage()));
+        },
         tooltip: 'Increment',
         backgroundColor: const Color(0xff54759e),
         child: const Icon(Icons.edit),
