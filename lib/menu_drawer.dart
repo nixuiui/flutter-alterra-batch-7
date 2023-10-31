@@ -22,13 +22,19 @@ class MenuDrawer extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.network(
-                        'https://assets.ayobandung.com/crop/1x7:719x541/750x500/webp/photo/2023/03/18/FB_IMG_1679143728783-579037915.jpg',
-                        width: 52,
-                        height: 52,
-                        fit: BoxFit.cover,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, 'profile');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Image.network(
+                          'https://assets.ayobandung.com/crop/1x7:719x541/750x500/webp/photo/2023/03/18/FB_IMG_1679143728783-579037915.jpg',
+                          width: 52,
+                          height: 52,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 12),

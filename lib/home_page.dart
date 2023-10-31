@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_alterra_batch_7/chat_room.dart';
 import 'package:flutter_alterra_batch_7/chat_room_item_widget.dart';
-import 'package:flutter_alterra_batch_7/layout_page.dart';
 import 'package:flutter_alterra_batch_7/menu_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -42,6 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
+  var name = "Niki";
+  var batch = "Batch 7";
+
   @override
   void initState() {
     super.initState();
@@ -52,7 +54,25 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff54759e),
-        title: const Text('Telegram'),
+        title: GestureDetector(
+          onTap: () async {
+            final result = await Navigator.pushNamed(
+              context, 
+              'about',
+              arguments: {
+                'name': name,
+                'batch': batch
+              }
+            );
+
+            setState(() {
+              final data = result  as Map<String, dynamic>;
+              name = data['name'];
+              batch = data['batch'];
+            });
+                    },
+          child: Text('Hi, $name | $batch')
+        ),
         actions: [
           IconButton(
             onPressed: () {}, 
@@ -67,12 +87,29 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         itemBuilder: (context, index) => ChatRoomItemWidget(
           chatRoom: chatList[index],
+          onPressed: () async {
+            final result = await Navigator.pushNamed(
+              context,
+              'member',
+              arguments: {
+                'name': chatList[index].name
+              }
+            );
+
+            if(result != null) {
+              final data = result as Map<String, dynamic>;
+              final newItem = chatList[index];
+              newItem.name = data['name'];
+              chatList[index] = newItem;
+              setState(() {});
+            }
+          },
         ),
       ),
       drawer: const MenuDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const LayoutPage()));
+          Navigator.pushNamed(context, 'layout');
         },
         tooltip: 'Increment',
         backgroundColor: const Color(0xff54759e),

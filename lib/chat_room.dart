@@ -1,9 +1,9 @@
 class ChatRoom {
 
-  final String? avatar;
-  final String name;
-  final String lastMessage;
-  final String time;
+  String? avatar;
+  String name;
+  String lastMessage;
+  String time;
 
   ChatRoom({
     this.avatar,
