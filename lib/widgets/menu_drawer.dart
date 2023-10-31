@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_alterra_batch_7/consts/app_const.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({
@@ -25,7 +26,7 @@ class MenuDrawer extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
-                        Navigator.pushNamed(context, 'profile');
+                        Navigator.pushNamed(context, AppConsts.menuProfile);
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),

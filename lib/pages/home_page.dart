@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_alterra_batch_7/chat_room.dart';
-import 'package:flutter_alterra_batch_7/chat_room_item_widget.dart';
-import 'package:flutter_alterra_batch_7/menu_drawer.dart';
+import 'package:flutter_alterra_batch_7/consts/app_const.dart';
+import 'package:flutter_alterra_batch_7/models/chat_room_model.dart';
+import 'package:flutter_alterra_batch_7/widgets/chat_room_item_widget.dart';
+import 'package:flutter_alterra_batch_7/widgets/menu_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: () async {
             final result = await Navigator.pushNamed(
               context, 
-              'about',
+              AppConsts.menuAbout,
               arguments: {
                 'name': name,
                 'batch': batch
@@ -90,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () async {
             final result = await Navigator.pushNamed(
               context,
-              'member',
+              AppConsts.menuMember,
               arguments: {
                 'name': chatList[index].name
               }
@@ -109,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: const MenuDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'layout');
+          Navigator.pushNamed(context, AppConsts.menuLayout);
         },
         tooltip: 'Increment',
         backgroundColor: const Color(0xff54759e),

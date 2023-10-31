@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_alterra_batch_7/chat_room.dart';
+import 'package:flutter_alterra_batch_7/models/chat_room_model.dart';
 
 class ChatRoomItemWidget extends StatelessWidget {
 
